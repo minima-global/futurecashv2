@@ -505,13 +505,11 @@ margin-bottom: 8px;
 
 
 
-@media all and (min-width: 979px) {
-  #menu .menuBtn, #menu .menuBtn2 {
-    font-size: 1.0rem;
-  }
-
-  #sendcash h6 {
-    font-size: 1.0rem;
-  }
+@media all and (max-width: 750px) {
+ .app {
+  height: 100%!important;
+  min-height: 100%;
+  border-radius: 0;
+ }
 }
 
