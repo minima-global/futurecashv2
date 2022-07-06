@@ -420,175 +420,157 @@
 		});
 		
 	</script>
-	
-	<div id="menu" class="container">
-		<div class="menu-header">
-			<div id="b-title-wrap" class="row">
-				<div class="col s12 hdr">
+	<div class="app-wrapper">
+		<div class="app">
+
+			<header>
+				<div id="content">
 					<h4> 
 						Future<span>Cash</span> <span id="demo">Demo</span>
 					</h4>
-					<img id="icon" src="assets/minima-orange.svg">
+					<img id="icon" src="assets/minima-orange.svg" />
 				</div>
-			</div>
+			</header>
 
-
-			<div id="buttons" class="z-depth-0 row">
-				<div id="aboutwrapper" class="col s4">
-					<div onclick="showPage(0)" id="introBtn" class="btn-flat waves-block menuBtn active">About</div>
-				</div>
-				<div id="sendcashwrapper" class="col s4">
-					<div onclick="showPage(1)" id="sendCashBtn" class="btn-flat waves-block menuBtn">Send</div>
-				</div>
-				<div id="myfuturewrapper" class="col s4">
-					<div onclick="showPage(2)" id="myFutureBtn" class="btn-flat waves-block menuBtn">My Future</div>
-				</div>
+			<div class="navigation">
+				<button class="active" id="introBtn" onclick="showPage(0)">About</button>
+				<button onclick="showPage(1)" id="sendCashBtn">Send</button>
+				<button onclick="showPage(2)" id="myFutureBtn">Future</button>
 			</div>
-		</div>
-		
-		<div id="menu-content">
-			<div class="card z-depth-0">
-				<div class="card-content">
-					<!-- Intro -->
-					<div id="intro">
+			
+			<main>
+				<div id="intro">
+					<div class="row">
+						<div class="col s12">
+							<ul class="firstcollection collapsible collection z-depth-0">
+								<li>
+									<div class="collapsible-header"><h5><i class="material-icons info-icons">lock</i>Safeguard money with FutureCash</h5><i id="dropdown1" class="dropdown material-icons iconadd">arrow_drop_down</i><i class="dropdown material-icons iconremove">arrow_drop_up</i></div>
+									<div class="collapsible-body">
+										<p>1. Look after your cash by not spending it</p>
+										<p>2. Look after other people's cash, too!</p>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="col s12">
+							<ul class="secondcollection collapsible collection z-depth-0">
+								<li>
+									<div class="collapsible-header"><h5><i class="material-icons info-icons">lock</i>Safeguarding your cash</h5><i id="dropdown1" class="dropdown material-icons iconadd">arrow_drop_down</i><i class="dropdown material-icons iconremove">arrow_drop_up</i></div>
+									<div class="collapsible-body">
+										<p>1. Navigate to the <span style="font-family:manrope-bold">Send</span> page</p>
+										<p>2. Generate a key you will use to lock away your cash</p>
+										<p>3. Copy the key</p>
+										<p>4. Paste the key into the key field </p>
+										<p>5. Pick a date and time - that's when you would like your cash to become spendable</p>
+										<p>6. Choose how much you would like to lock away</p>
+										<p>7. Send yourself some <span style="font-family:manrope-bold">FutureCash</span></p>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="col s12">
+							<ul  class="thirdcollection collapsible collection z-depth-0">
+								<li>
+									<div class="collapsible-header"><h5><i class="material-icons info-icons">lock</i>Safeguarding other people's cash</h5><i id="dropdown2" class="dropdown material-icons iconadd">arrow_drop_down</i><i class="dropdown material-icons iconremove">arrow_drop_up</i></div>
+									<div class="collapsible-body">
+										<p>1. Generate a key you will use to lock away your cash</p>
+										<p>2. Copy the key</p>
+										<p>3. Send the key to the person whose cash you want to safeguard</p>
+										<p>4. Ask them to follow steps 3 - 6 from <span onclick="openCollapsible()" style="font-family: manrope-bold">above</span> </p>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="col s12">
+							<ul  class="fourthcollection collapsible collection z-depth-0">
+								<li>
+									<div  class="collapsible-header"><h5><i class="material-icons info-icons">lock_open</i>Collecting FutureCash</h5> <i class="dropdown material-icons iconadd">arrow_drop_down</i><i class="dropdown material-icons iconremove">arrow_drop_up</i></div>
+									<div class="collapsible-body">
+										<p>1. Navigate to the <span style="font-family: manrope-bold;">My Future</span> page</p>
+										<p>2. Once the date and time of the <span style="font-family:manrope-bold">FutureCash</span> arrives, a <span style="font-family: manrope-bold;">Collect</span> button appears, which allow key holders to collect the <span style="font-family:manrope-bold">FutureCash</span></p>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div id="sendcash" class="hide">
+					<div id="myaddress-wrap" class="row">
+						<div class="col s12">
+							<p id="myaddress">No key generated yet.</p>
+						</div>
+						<div class="col s7">
+							<div onclick="newKey();" class="btn-flat btn-small z-depth-0 genBtn">Generate key</div>
+						</div>
+						<div id="copyWrapper" class="col offset-s1 s4">
+							<div onclick="copyKey();" class="btn-flat btn-small z-depth-0 copykey">Copy key</div>
+						</div>
+					</div>
+					<div id="sendform">
 						<div class="row">
-							<div class="col s12">
-								<ul class="firstcollection collapsible collection z-depth-0">
-									<li>
-										<div class="collapsible-header"><h5><i class="material-icons info-icons">lock</i>Safeguard money with FutureCash</h5><i id="dropdown1" class="dropdown material-icons iconadd">arrow_drop_down</i><i class="dropdown material-icons iconremove">arrow_drop_up</i></div>
-										<div class="collapsible-body">
-											<p>1. Look after your cash by not spending it</p>
-											<p>2. Look after other people's cash, too!</p>
-										</div>
-									</li>
-								</ul>
+							<div class="col s3">
+								<h6 id="title-dt" style="margin-top: 0">Date & Time:</h6>
 							</div>
-							<div class="col s12">
-								<ul class="secondcollection collapsible collection z-depth-0">
-									<li>
-										<div class="collapsible-header"><h5><i class="material-icons info-icons">lock</i>Safeguarding your cash</h5><i id="dropdown1" class="dropdown material-icons iconadd">arrow_drop_down</i><i class="dropdown material-icons iconremove">arrow_drop_up</i></div>
-										<div class="collapsible-body">
-											<p>1. Navigate to the <span style="font-family:manrope-bold">Send</span> page</p>
-											<p>2. Generate a key you will use to lock away your cash</p>
-											<p>3. Copy the key</p>
-											<p>4. Paste the key into the key field </p>
-											<p>5. Pick a date and time - that's when you would like your cash to become spendable</p>
-											<p>6. Choose how much you would like to lock away</p>
-											<p>7. Send yourself some <span style="font-family:manrope-bold">FutureCash</span></p>
-										</div>
-									</li>
-								</ul>
+							<div class="col s4">
+								<input size="40" class="datepicker" id="futuredate">
 							</div>
-							<div class="col s12">
-								<ul  class="thirdcollection collapsible collection z-depth-0">
-									<li>
-										<div class="collapsible-header"><h5><i class="material-icons info-icons">lock</i>Safeguarding other people's cash</h5><i id="dropdown2" class="dropdown material-icons iconadd">arrow_drop_down</i><i class="dropdown material-icons iconremove">arrow_drop_up</i></div>
-										<div class="collapsible-body">
-											<p>1. Generate a key you will use to lock away your cash</p>
-											<p>2. Copy the key</p>
-											<p>3. Send the key to the person whose cash you want to safeguard</p>
-											<p>4. Ask them to follow steps 3 - 6 from <span onclick="openCollapsible()" style="font-family: manrope-bold">above</span> </p>
-										</div>
-									</li>
-								</ul>
-							</div>
-							<div class="col s12">
-								<ul  class="fourthcollection collapsible collection z-depth-0">
-									<li>
-										<div  class="collapsible-header"><h5><i class="material-icons info-icons">lock_open</i>Collecting FutureCash</h5> <i class="dropdown material-icons iconadd">arrow_drop_down</i><i class="dropdown material-icons iconremove">arrow_drop_up</i></div>
-										<div class="collapsible-body">
-											<p>1. Navigate to the <span style="font-family: manrope-bold;">My Future</span> page</p>
-											<p>2. Once the date and time of the <span style="font-family:manrope-bold">FutureCash</span> arrives, a <span style="font-family: manrope-bold;">Collect</span> button appears, which allow key holders to collect the <span style="font-family:manrope-bold">FutureCash</span></p>
-										</div>
-									</li>
-								</ul>
+							<div id="copykey" class="col s4">
+								<input size="40" type="text" class="timepicker" id="futuretime">
 							</div>
 						</div>
-					</div>
-					<!-- Send Cash -->
-					<div id="sendcash" class="hide">
-						<div id="myaddress-wrap" class="row">
-							<div class="col s12">
-								<p id="myaddress">No key generated yet.</p>
+						<div class="row">
+							<div class="col s3">
+								<h6>Amount:</h6>
 							</div>
-							<div class="col s7">
-								<div onclick="newKey();" class="btn-flat btn-small z-depth-0 genBtn">Generate key</div>
-							</div>
-							<div id="copyWrapper" class="col offset-s1 s4">
-								<div onclick="copyKey();" class="btn-flat btn-small z-depth-0 copykey">Copy key</div>
+							<div class="col s9">
+								<input size="40" type="number" id="amount">
 							</div>
 						</div>
-						<div id="sendform">
-							<div class="row">
-								<div class="col s3">
-									<h6 id="title-dt" style="margin-top: 0">Date & Time:</h6>
-								</div>
-								<div class="col s4">
-									<input size="40" class="datepicker" id="futuredate">
-								</div>
-								<div id="copykey" class="col s4">
-									<input size="40" type="text" class="timepicker" id="futuretime">
-								</div>
+						<div class="row">
+							<div class="col s3">
+								<h6>Key:</h6>
 							</div>
-							<div class="row">
-								<div class="col s3">
-									<h6>Amount:</h6>
-								</div>
-								<div class="col s9">
-									<input size="40" type="number" id="amount">
-								</div>
-							</div>
-							<div class="row">
-								<div class="col s3">
-									<h6>Key:</h6>
-								</div>
-								<div class="col s9">
-									<input size="40" type="text" id="futurekey">
-								</div>
-							</div>
-							<div class="row">
-								<div class="col offset-s3 s5">
-									<div onclick="pastekey();" class="btn-flat btn-small z-depth-0 pastekey">Paste key</div>
-								</div>
-								<div style="width: 1 auto; padding-right:1%" class="col s4">
-									<div onclick="sendFunds()" data-target="modalSendFunds" class="btn-small z-depth-0 sendBtn modal-trigger left">Send Funds</div>
-								</div>
-	
+							<div class="col s9">
+								<input size="40" type="text" id="futurekey">
 							</div>
 						</div>
-					</div>
-					<!-- My Future -->
-					<div id="mycash" class="hide">
-						<div id="futuremoney">
-							NO MONEY YET
+						<div class="row">
+							<div class="col offset-s3 s5">
+								<div onclick="pastekey();" class="btn-flat btn-small z-depth-0 pastekey">Paste key</div>
+							</div>
+							<div style="width: 1 auto; padding-right:1%" class="col s4">
+								<div onclick="sendFunds()" data-target="modalSendFunds" class="btn-small z-depth-0 sendBtn modal-trigger left">Send Funds</div>
+							</div>
+
 						</div>
 					</div>
 				</div>
-			</div>
+				<div id="mycash" class="hide">
+					<div id="futuremoney">
+						NO MONEY YET
+					</div>
+				</div>
+			</main>
+	
+			<footer>
+				<div class="baldiv" id="yourbalance">myBalance</div>
+				<div class="timediv" id="blocktime">blockHeight</div>
+			</footer>
+	
+	
+			<!-- Modal -->
+			<!-- <div id="modalSendFunds" class="modal">
+				<div class="modal-content">
+					<h4>You are about to send money to the <b>Future!</b></h4>
+					<p>Are you sure?</p>
+				</div>
+				<div class="modal-footer">
+					<a href="#!" class="modal-close waves-effect waves-green btn-flat">Dismiss</a>
+					<a id="yesBtn" href="#!" class="modal-close waves-effect waves-green btn-flat">Yes</a>
+				</div>
+				</div> -->
+	
 		</div>
-
-		<div class="menu-footer row">
-			<div style="padding: 0;" class="col s6">
-				<div class="baldiv" id="yourbalance">...</div>
-			</div>
-			<div style="padding: 0;" class="col s6">
-				<div class="timediv" id="blocktime">...</div>
-			</div>
-		</div>
-
-
-		<!-- Modal -->
-		<div id="modalSendFunds" class="modal">
-			<div class="modal-content">
-			  <h4>You are about to send money to the <b>Future!</b></h4>
-			  <p>Are you sure?</p>
-			</div>
-			<div class="modal-footer">
-			  <a href="#!" class="modal-close waves-effect waves-green btn-flat">Dismiss</a>
-			  <a id="yesBtn" href="#!" class="modal-close waves-effect waves-green btn-flat">Yes</a>
-			</div>
-		  </div>
-
 	</div>
 
 	<!-- Compiled and minified JavaScript -->

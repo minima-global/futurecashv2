@@ -11,34 +11,100 @@
   font-family: manrope-regular;
   src: url("./assets/fonts/manrope-regular.otf");
 }
-#menu {
+body, html {
+  padding: 0; margin: 0 auto;
+  background-color: #031B32;
+  font-family: manrope-regular;
+}
+footer {
+  border-top: 0.5px solid #455969;
+  height: 60px;
+  bottom: 0;
+  text-align: center;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  bottom: 0;
+  left: 8px;
+  right: 8px;
   background-color: #F0F0FA;
-  max-width: 700px;
+  position: inherit;
+}
+
+.app-wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.app {
+  width: 700px;
+  height: 80vh;
+  max-height: 600px;
+  background-color: #F0F0FA;
   border-radius: 8px;
   padding: 8px;
+  position: sticky;
+  overflow: hidden;
+  overflow-y: scroll;
 }
-.hdr {
+
+main {
+  overflow-y: scroll!important;
+  height: 100%;
+}
+header #content {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-#menu #menu-content {
-  overflow: scroll;
+header {
+  margin-bottom: 8px;
+  border-radius: 8px;
+  background-color: #031B32;
+  padding: 16px;
+  position: sticky;
 }
-#menu .menu-header {
-  position: relative;
-  top: 0;
-  height: 5vw;
+header #icon {
+  width: 32px;
+  height: 32px;
 }
-#menu .menu-footer {
+header h4 {
+  color: #fff !important;
+  margin:0;
+  padding:0;
+  font-family: manrope-bold;
+}
+header h4 span {
+  color: #F65130 !important;
+  font-weight: 800;
+}
+header  h4 #demo {
+  color: #fff !important;
+  font-size: 16px;
+  font-weight: 800;
+  padding-left: 8px;
+}
+
+.app .navigation {
   position: relative;
-  bottom: 0;
-  border-top: 2px solid #455969 !important;
-  border-top-color: #455969 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  max-height: 3.6vw;
-  width:100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.navigation button {
+  width: 100%;
+  background-color: #031B32;
+  color: #fff;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  margin: 1px;
+}
+.navigation button:hover {
+  opacity: 0.8;
 }
 #menu #yourbalance {
   margin-bottom: 4%;
@@ -50,18 +116,6 @@
 ::-webkit-scrollbar {
   width: 0px;
   background: transparent; /* make scrollbar transparent */
-}
-body {
-  background-color: #031B32;
-  font-family: manrope-regular;
-  display: webkit box;
-  display: webkit flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
 }
 
 #buttons {
@@ -78,60 +132,12 @@ body {
   padding-right:0!important;
 }
 
-#menu #buttons .col .menuBtn {
-  white-space: pre-wrap;
-  overflow: hidden;
-  border-radius: 8px;
-}
-#menu .card-title h4 {
-  font-family: manrope-bold !important;
-}
-#menu .menuBtn, #menu .menuBtn2 {
-  font-family: manrope-bold;
-  font-size: 16px;
-  text-transform: none !important;
-  background-color: #031B32 !important;
-  color: #fff;
-}
-#menu .menuBtn:hover, #menu .menuBtn2:hover {
+
+
+
+
+button.active {
   background-color: #F65130 !important;
-}
-#menu #menu-content {
-  background: transparent !important;
-}
-#menu .menuBtn.active {
-  background-color: #F65130 !important;
-}
-#menu #menu-content .card-content {
-  padding: 0 !important;
-}
-#b-title-wrap {
-  border-radius: 8px;
-  background-color: #031B32 !important;
-  margin-bottom: 8px;
-}
-#b-title-wrap {
-  font-family: manrope-bold !important;
-  padding: 16px 8px;
-}
-#b-title-wrap #icon {
-  width: 32px;
-  height: 32px;
-}
-#b-title-wrap h4 {
-  color: #fff !important;
-  margin:0;
-  padding:0;
-}
-#b-title-wrap h4 span {
-  color: #F65130 !important;
-  font-weight: 800;
-}
-#b-title-wrap  h4 #demo {
-  color: #fff !important;
-  font-size: 16px;
-  font-weight: 800;
-  padding-left: 8px;
 }
 #intro {
   text-align: left;
