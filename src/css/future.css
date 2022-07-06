@@ -55,6 +55,7 @@ footer {
 main {
   overflow-y: scroll!important;
   height: 100%;
+  margin-top: 16px;
 }
 header #content {
   display: flex;
@@ -141,7 +142,6 @@ button.active {
 }
 #intro {
   text-align: left;
-  margin: 16px 0px;
 }
 #intro #title {
   margin-bottom: 0;
@@ -155,6 +155,10 @@ button.active {
 }
 .info-icons {
   color: #F65130!important;
+}
+ul.firstcollection, ul.secondcollection, .thirdcollection, .fourthcollection {
+margin: 0;
+margin-bottom: 8px;
 }
 /* .firstcollection li div.collapsible-header h5 {
   line-height: 31px;
@@ -199,8 +203,8 @@ button.active {
   padding-right: 0;
 }
 #intro h2 {
-  margin-top: 1%;
-  margin-bottom: 1%;
+  margin-top: 8px;
+  margin-bottom: 8px;
   font-family: manrope-bold !important;
 }
 #intro h5 {
@@ -218,30 +222,29 @@ button.active {
   align-items: center;
 
 }
-/* ul.collapsible {
-  margin: 0;
+.button-wrapper {
+  display: flex;
+  justify-content: space-between;
 }
-.collapsible {
-  padding: 0;
+.button-wrapper button {
+  margin: 1px;
+  border: none;
+  padding: 8px;
+  font-family: manrope-bold;
 }
-.collapsible .collapsible-header {
-  padding: 1%;
-} */
-#sendcash {
-  margin-top: 16px;
-}
-#sendcash #myaddress-wrap {
-  border-bottom: 2px solid #455968;
+.button-wrapper button:hover {
+  opacity: 0.8;
 }
 
-#sendcash #myaddress {
+#myaddress {
   font-size: 1.0rem;
-  padding: 2%;
-  margin-bottom: 2%;
+  padding: 8px;
+  margin-bottom: 8px;
   word-wrap: break-word;
   white-space: normal;
-  background-color: #fff !important;
-  color: #548FFF !important;
+  text-overflow: ellipsis;
+  background-color: #fff;
+  color: #000;
 }
 #sendcash #myaddress {
   text-align: left;
@@ -322,7 +325,7 @@ button.active {
   font-variant-numeric: oldstyle-nums;
 }
 #sendcash #sendform {
-  padding: 0 0 0 15%;
+  padding: 16px 0px;
 }
 #sendcash .col {
   padding-right: 0 !important;
@@ -331,18 +334,8 @@ button.active {
 }
 #sendcash h6 {
   font-family: manrope-bold;
-  font-size: 2.1vw;
-  position: relative;
-  top :0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  padding-top: 8%;
-}
-#sendcash #title-dt {
-  padding-top: 0%;
-  padding-bottom: 5%;
+  font-size:16px;
+  padding-top: 0;
 }
 #sendcash .collection {
   background: inherit !important;
@@ -353,7 +346,7 @@ button.active {
   border: none !important;
 }
 #sendcash input { 
-  padding-left: 2%;
+  padding-left: 8px;
   background-color: #fff !important;
   height: 36px;
   word-break: break-all;
@@ -378,12 +371,13 @@ button.active {
   overflow: hidden;
 }
 #mycash {
-  margin-left: 3.5%;
-  margin-right: 3.5%;
-  padding-bottom: 5%;
+ 
+}
+#futuremoney {
+  opacity: 0.7;
 }
 #mycash #futuretable {
-  margin-top: 1%;
+  
 }
 #mycash #futuretable #table-header.row .col .btn-flat {
   font-size: 1.0rem;
