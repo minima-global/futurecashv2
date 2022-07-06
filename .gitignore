@@ -1,1 +1,7 @@
 *.zip
+
+.DS_Store
+
+.vscode
+
+.gitignore

@@ -227,7 +227,6 @@ margin-bottom: 8px;
   justify-content: space-between;
 }
 .button-wrapper button {
-  margin: 1px;
   border: none;
   padding: 8px;
   font-family: manrope-bold;
@@ -246,9 +245,6 @@ margin-bottom: 8px;
   background-color: #fff;
   color: #000;
 }
-#sendcash #myaddress {
-  text-align: left;
-}
 #sendcash .genBtn {
   font-family: manrope-bold !important;
   font-size: 1.0rem;
@@ -262,46 +258,26 @@ margin-bottom: 8px;
 }
 #sendcash .copykey {
   width: 100%;
-  word-break: keep-all;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  text-transform: none;
-  border: 1px solid #317AFF !important;
+  border: 1px solid #317AFF;
   color: #317AFF;
   font-family: manrope-bold;
+  background: transparent;
+  margin-left: 8px;
 }
-#sendcash #copykey.col.s4 {
-  width: 40.33333%!important;
-  margin-left: 1%!important;
-}
-#sendcash .copykey:hover, #sendcash .pastekey:hover {
-  background-color: transparent !important;
-}
-#copyWrapper.offset-s1 {
-  margin-left: 1%;
-}
-#sendcash .copyKey {
-  width: 122%;
+.split {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #sendcash .pastekey {
-  width: 100%;
-  text-transform: none;
-  border: 1px solid #317AFF !important;
   color: #317AFF;
+  padding: 8px;
+  border: 1px solid #317AFF;
+  width: 100%;
   font-family: manrope-bold;
-  white-space: pre-wrap;
-  overflow: hidden;
-}
-#sendcash #genBtn-wrap .col {
-  padding: 0;
-}
-#sendcash #genBtn-wrap .col p {
-  font-weight: 400;
-  height: auto;
-}
-#sendcash #genBtn-wrap .col {
-  height: 40px;
+  background-color: transparent;
 }
 
 .menu-footer #yourbalance, .menu-footer #blocktime {
@@ -360,33 +336,33 @@ margin-bottom: 8px;
   font-weight: 600;
 }
 #sendcash .sendBtn {
-  background-color: #317AFF !important;
-  color: #fff !important;
-  width:98%;
-  text-transform: none;
-  font-size: 1.0rem;
-  font-family: manrope-bold !important;
-  margin-left: 3%;
-  white-space: pre-wrap;
-  overflow: hidden;
+  color: #fff;
+  background-color: #317AFF;
+  border: 1px solid #317aff;
+  font-family: manrope-bold;
+  margin-left: 8px;
+  width: 100%;
+  padding: 8px;
 }
-#mycash {
- 
-}
+
 #futuremoney {
   opacity: 0.7;
 }
-#mycash #futuretable {
-  
+#table-hdr-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
-#mycash #futuretable #table-header.row .col .btn-flat {
-  font-size: 1.0rem;
+#table-hdr-wrapper .table-hdr {
+  width: 100%;
+  margin: 1px;
+  margin-bottom: 8px;
+  font-size: 16px;
   text-align: center;
-  font-family: manrope-bold !important;
-  color: #fff !important;  
-  padding-left:0;
-  padding-right:0!important;
-  cursor: auto;
+  font-family: manrope-bold;
+  color: #031B32;
+  background: transparent;
+  border-bottom: 0.5px solid #031B32;
 }
 
 #mycash #futuretable #table-header .col div {
@@ -446,17 +422,30 @@ margin-bottom: 8px;
 #mycash button {
   width:100%;
 }
+
+#modalSendFunds {
+  width: 80vw;
+  max-width: 400px;
+}
+#modalSendFunds .modal-content {
+  text-align: center;
+}
 #modalSendFunds h4 {
-  font-size: 1.0rem;
+  font-size: 16px;
   font-weight: 400;
   letter-spacing: -0.02em;
 }
 #modalSendFunds p {
-  font-size: 1.0rem;
+  font-size: 16px;
 }
 #modalSendFunds #yesBtn {
-  color: #548FFF !important;
-  font-size:1.2rem;
+  color: #548FFF;
+  font-size: 22px;
+  text-transform: none;
+}
+#modalSendFunds #dismissBtn {
+  color: #000;
+  text-transform: none;
 }
 #modalSendFunds a {
   color: #F65130;
