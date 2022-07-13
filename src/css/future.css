@@ -1,36 +1,36 @@
-/** Default Minima font - Manrope master */
+body, html {
+  padding: 0; margin: 0 auto;
+  background-color: #16181C;
+  font-family: manrope-regular;
+}
 @font-face {
   font-family: manrope-bold;
-  src: url("./assets/fonts/manrope-bold.otf");
+  src: url("../assets/fonts/manrope-bold.otf") format("opentype");
 }
 @font-face {
   font-family: manrope-light;
-  src: url("./assets/fonts/manrope-light.otf");
+  src: url("../assets/fonts/manrope-light.otf") format("opentype");
 }
 @font-face {
   font-family: manrope-regular;
-  src: url("./assets/fonts/manrope-regular.otf");
-}
-body, html {
-  padding: 0; margin: 0 auto;
-  background-color: #031B32;
-  font-family: manrope-regular;
+  src: url("../assets/fonts/manrope-regular.otf") format("opentype");
 }
 footer {
   border-top: 0.5px solid #455969;
   height: 60px;
   bottom: 0;
   text-align: center;
-  
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
   bottom: 0;
   left: 8px;
   right: 8px;
-  background-color: #F0F0FA;
   position: inherit;
+  background-color: #16181C;
+  color: #fff;
+  padding: 0px 8px;
+  border-radius: 8px;
 }
 
 .app-wrapper {
@@ -44,12 +44,13 @@ footer {
   width: 700px;
   height: 80vh;
   max-height: 600px;
-  background-color: #F0F0FA;
   border-radius: 8px;
-  padding: 8px;
+  padding: 16px;
   position: sticky;
   overflow: hidden;
   overflow-y: scroll;
+  background-image: url('../assets/LM.jpeg');
+  background-size: cover;
 }
 
 main {
@@ -65,7 +66,7 @@ header #content {
 header {
   margin-bottom: 8px;
   border-radius: 8px;
-  background-color: #031B32;
+  background-color: #16181C;
   padding: 16px;
   position: sticky;
 }
@@ -97,7 +98,7 @@ header  h4 #demo {
 }
 .navigation button {
   width: 100%;
-  background-color: #031B32;
+  background-color: #16181C;
   color: #fff;
   padding: 8px;
   border: none;
@@ -118,7 +119,7 @@ header  h4 #demo {
   width: 0px;
   background: transparent; /* make scrollbar transparent */
 }
-
+/* 
 #buttons {
   text-align: center;
 }
@@ -131,7 +132,7 @@ header  h4 #demo {
 }
 #myfuturewrapper, #th-collect {
   padding-right:0!important;
-}
+} */
 
 
 
@@ -160,28 +161,7 @@ ul.firstcollection, ul.secondcollection, .thirdcollection, .fourthcollection {
 margin: 0;
 margin-bottom: 8px;
 }
-/* .firstcollection li div.collapsible-header h5 {
-  line-height: 31px;
-  float: left;
-  font-size: 1.1rem!important;
-}
-.secondcollection li div.collapsible-header h5 {
-  line-height: 31px;
-  float: left;
-  font-size: 1.1rem!important;
-}
-.firstcollection li div.collapsible-body p, .secondcollection li div.collapsible-body p, .thirdcollection li div.collapsible-body p, .fourthcollection li div.collapsible-body p  {
 
-  font-family: manrope-regular;
-}
-.thirdcollection li div.collapsible-header h5 {
-  line-height: 31px;
-  font-size: 1.1rem!important;
-}
-.fourthcollection li div.collapsible-header h5 {
-  line-height: 31px;
-  font-size: 1.1rem!important;
-} */
 .dropdown {
   float: right;
   font-size: 2.3rem !important;
@@ -239,9 +219,9 @@ margin-bottom: 8px;
   font-size: 1.0rem;
   padding: 8px;
   margin-bottom: 8px;
-  word-wrap: break-word;
-  white-space: normal;
+  white-space: nowrap;
   text-overflow: ellipsis;
+  overflow-x: hidden;
   background-color: #fff;
   color: #000;
 }
@@ -278,27 +258,6 @@ margin-bottom: 8px;
   width: 100%;
   font-family: manrope-bold;
   background-color: transparent;
-}
-
-.menu-footer #yourbalance, .menu-footer #blocktime {
-  padding-top: 5%;
-  font-size: 1.0rem;
-  letter-spacing: 0.02em;
-}
-.menu-footer .baldiv {
-  font-family: manrope-bold !important;
-  padding-left: 10%;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  text-align: left !important;
-  font-variant-numeric: oldstyle-nums;
-}
-.menu-footer .timediv {
-  font-family: manrope-bold !important;
-  padding-right: 10%;
-  font-weight: 600;
-  text-align: right !important;
-  font-variant-numeric: oldstyle-nums;
 }
 #sendcash #sendform {
   padding: 16px 0px;
@@ -382,32 +341,40 @@ margin-bottom: 8px;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-#td-amount, #td-time {
-  margin: auto;
-  text-align: center;
-  border-right: 1px solid #F0F0FA;
-  height: 29px;
-  line-height: 25px;
-}
-#td-collect {
-  height: 25px;
-}
-#td-amount .wrap {
-  margin: auto;
-  display: inline;
-  text-align: right;
+.table-data-row {
   width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.table-data-col {
+  width: 100%;
+  text-align: center;
+  padding: 8px;
+  background-color: #fff;
+  height: 48px;
+  max-height: 48px;
+  min-height: 22px;
+  text-overflow: hidden;
+  white-space: nowrap;
+
 }
 .collect {
-  margin: auto;
-  font-family: manrope-bold !important;
-  text-transform: none !important;
-  height: inherit!important;
-  line-height: inherit;
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.collect:hover {
+  opacity: 0.9;
+}
+.collect:disabled {
+  opacity: 0.2;
+  cursor: default;
 }
 .progress {
   cursor: pointer;
-  height: 10px;
   width: 100%;
 }
 
@@ -465,12 +432,13 @@ margin-bottom: 8px;
 .miningstarted {
   background-color: #548FFF !important;
   font-family: manrope-bold;
-  height: 150px;
+}
+.miningstopped {
+  background-color: 
 }
 .miningstop {
   background-color: rgb(246,81,48) !important;
   font-family: manrope-bold;
-  height: 150px;
 }
 .danger {
   background-color: rgb(246, 81, 48) !important;
@@ -502,3 +470,42 @@ margin-bottom: 8px;
  }
 }
 
+
+.center-content {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.progress-container {
+  background-color: #CCC;
+  position: relative;
+  display: flex;
+  align-items: center!important;
+  justify-content: flex-start!important;
+  padding:0!important;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: transparent;
+}
+
+.my-progress-bar {
+  position: relative;
+  height: 22px;
+  border-radius: 8px;
+  background-color: #317AFF!important;
+  max-width: 100%;
+  background: #fff;
+  z-index: 10000;
+  /* animation: progress-animation 5s forwards; */
+}
+
+@keyframes progress-animation {
+  0% { width: 0 }
+  100% {width: 100%}
+}
