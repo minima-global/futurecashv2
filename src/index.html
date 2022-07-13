@@ -420,9 +420,9 @@
              txnoutput id:${txnid} amount:${cashamount} address:${newaddress} tokenid:0x00;
              txnbasics id:${txnid};
              txnsign id:${txnid} publickey:${key};
-             txnpost id:${txnid}
+             txnpost id:${txnid};
+             txndelete id:${txnid}
              `;
-          // txndelete id:${txnid}
           // console.log("txncreator", txncreator);
           //Post it..
           MDS.cmd(txncreator, function (resp) {
