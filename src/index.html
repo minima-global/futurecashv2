@@ -148,6 +148,14 @@
         }
       }
 
+      function toggleForm(toggle) {
+        document.getElementById("send-funds-btn").disabled = toggle;
+        document.getElementById("futuredate").disabled = toggle;
+        document.getElementById("futuretime").disabled = toggle;
+        document.getElementById("amount").disabled = toggle;
+        document.getElementById("futurekey").disabled = toggle;
+      }
+
       function sendFunds() {
         amount = document.getElementById("amount").value.trim();
         date = document.getElementById("futuredate").value.trim();
@@ -217,20 +225,8 @@
           },
           onCloseEnd: function () {
             if (confirmed) {
-              //Create a random txn id..
-              // var txnid = Math.floor(Math.random()*1000000000);
-
-              /**
-      			//Construct Transaction..
-      			var txncreator =
-      				"txncreate id:"+txnid+";"+
-      				"txnstate id:"+txnid+" port:0 value:"+key+";"+
-      				"txnstate id:"+txnid+" port:1 value:"+block+";"+
-      				"txnstate id:"+txnid+" port:2 value:"+ms+";"+
-      				"txnauto id:"+txnid+" "+amount+" "+timeaddress+";"+
-      				"txnpost id:"+txnid+";"+
-      				"txndelete id:"+txnid+";";
-      			*/
+              // DISABLE FORM
+              toggleForm(true);
               // console.log("block we sending this cash to", block.floor());
               var customTransaction = `send amount:${amount} address:${timeaddress} state:{"0":"${key}", "1":"${block.floor()}", "2": "${ms}"}`;
 
@@ -246,7 +242,9 @@
                     html: "You have just sent some cash to the future!",
                     classes: "success",
                   });
+                  toggleForm(false);
                 } else {
+                  toggleForm(false);
                   console.error(
                     resp.message
                       ? resp.message
@@ -323,6 +321,8 @@
             //console.log("Coinids", coinproof.coinid);
 
             var collectstring = "";
+            console.log("TIMECOIN", timecoin);
+            console.log("CURRENTBLOCKNUMBER", CURRENTBLOCKNUMBER);
             if (timecoin <= CURRENTBLOCKNUMBER) {
               collectstring = `
                    <button id="${coinproof.coinid}" onclick="collectCoin('${coinproof.coinid}', '${keycoin}', ${amountcoin})" class="collect">
@@ -350,6 +350,7 @@
                     <div class="my-progress-bar" style="width:${percentage.toFixed(
                       0
                     )}%">
+                    ${diff}
                     </div>
                   </div>
                   `;
@@ -541,7 +542,7 @@
       <div class="app">
         <header>
           <div id="content">
-            <h4>Future<span>Cash</span> <span id="demo">Demo</span></h4>
+            <h4>Future<span>Cash</span></h4>
             <img id="icon" src="assets/minima-orange.svg" />
           </div>
         </header>
@@ -570,7 +571,7 @@
                   >
                 </div>
                 <div class="collapsible-body">
-                  <p>1. Look after your cash by not spending it</p>
+                  <p>1. Look after your cash by not spending it.</p>
                   <p>2. Look after other people's cash, too!</p>
                 </div>
               </li>
@@ -579,8 +580,8 @@
               <li>
                 <div class="collapsible-header">
                   <h5>
-                    <i class="material-icons info-icons">lock</i>Safeguarding
-                    your cash
+                    <i class="material-icons info-icons">lock</i>How to send
+                    cash to the future.
                   </h5>
                   <i id="dropdown1" class="dropdown material-icons iconadd"
                     >arrow_drop_down</i
@@ -593,22 +594,21 @@
                     1. Navigate to the
                     <span style="font-family: manrope-bold">Send</span> page
                   </p>
-                  <p>2. Generate a key you will use to lock away your cash</p>
-                  <p>3. Copy the key</p>
-                  <p>4. Paste the key into the key field</p>
+                  <p>
+                    2. Generate a key you or a friend will use to lock away.
+                  </p>
+                  <p>3. Copy the key.</p>
+                  <p>4. Paste the key into the key field.</p>
                   <p>
                     5. Pick a date and time - that's when you would like your
-                    cash to become spendable
+                    cash to become spendable.
                   </p>
-                  <p>6. Choose how much you would like to lock away</p>
-                  <p>
-                    7. Send yourself some
-                    <span style="font-family: manrope-bold">FutureCash</span>
-                  </p>
+                  <p>6. Choose how much you would like to lock away.</p>
+                  <p>7. Send the cash to the future.</p>
                 </div>
               </li>
             </ul>
-            <ul class="thirdcollection collapsible collection z-depth-0">
+            <!-- <ul class="thirdcollection collapsible collection z-depth-0">
               <li>
                 <div class="collapsible-header">
                   <h5>
@@ -638,7 +638,7 @@
                   </p>
                 </div>
               </li>
-            </ul>
+            </ul> -->
             <ul class="fourthcollection collapsible collection z-depth-0">
               <li>
                 <div class="collapsible-header">
@@ -655,7 +655,7 @@
                   <p>
                     1. Navigate to the
                     <span style="font-family: manrope-bold">My Future</span>
-                    page
+                    page.
                   </p>
                   <p>
                     2. Once the date and time of the
@@ -663,7 +663,7 @@
                     arrives, a
                     <span style="font-family: manrope-bold">Collect</span>
                     button appears, which allow key holders to collect the
-                    <span style="font-family: manrope-bold">FutureCash</span>
+                    <span style="font-family: manrope-bold">FutureCash.</span>
                   </p>
                 </div>
               </li>
@@ -728,12 +728,13 @@
               <div class="row">
                 <div class="col s3"></div>
                 <div class="col s5">
-                  <button onclick="pastekey()" class="pastekey">
+                  <!-- <button onclick="pastekey()" class="pastekey">
                     Paste Key
-                  </button>
+                  </button> -->
                 </div>
                 <div class="col s4">
                   <button
+                    id="send-funds-btn"
                     onclick="sendFunds()"
                     data-target="modalSendFunds"
                     class="sendBtn modal-trigger"
@@ -750,8 +751,16 @@
         </main>
 
         <footer>
-          <div class="baldiv" id="yourbalance">myBalance</div>
-          <div class="timediv" id="blocktime">blockHeight</div>
+          <div class="grid">
+            <div class="row">
+              <div class="col s12 m6">
+                <div class="baldiv left" id="yourbalance">...</div>
+              </div>
+              <div class="col s12 m6">
+                <div class="timediv right" id="blocktime">...</div>
+              </div>
+            </div>
+          </div>
         </footer>
 
         <!-- Modal -->

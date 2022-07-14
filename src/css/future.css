@@ -19,10 +19,6 @@ footer {
   border-top: 0.5px solid #455969;
   height: 60px;
   bottom: 0;
-  text-align: center;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   bottom: 0;
   left: 8px;
   right: 8px;
@@ -31,6 +27,25 @@ footer {
   color: #fff;
   padding: 0px 8px;
   border-radius: 8px;
+}
+footer .grid .row {
+  margin-bottom: 0;
+  margin-left:0;
+  margin-right:0;
+  width:100%;
+}
+footer .grid {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: hidden;
+}
+footer .baldiv, footer .timediv {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
 
 .app-wrapper {
@@ -111,6 +126,8 @@ header  h4 #demo {
 #menu #yourbalance {
   margin-bottom: 4%;
 }
+
+
 
 
 
@@ -302,6 +319,14 @@ margin-bottom: 8px;
   margin-left: 8px;
   width: 100%;
   padding: 8px;
+}
+#sendcash input:disabled {
+  opacity: 0.2;
+}
+
+#sendcash .sendBtn:disabled {
+  opacity: 0.2;
+  cursor: default;
 }
 
 #futuremoney {
@@ -519,3 +544,6 @@ margin-bottom: 8px;
   0% { width: 0 }
   100% {width: 100%}
 }
+
+
+
