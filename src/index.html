@@ -450,21 +450,21 @@
             resp.forEach(function (r) {
               // console.log(r);
               if (r.status) {
-                collectCoin = true;
+                collectedCoin = true;
               } else {
-                collectCoin = false;
+                collectedCoin = false;
                 return;
               }
             });
 
-            if (collectCoin) {
+            if (collectedCoin) {
               M.toast({
                 html: "Collected " + cashamount + " FutureCash!",
                 classes: "success",
               });
             }
 
-            if (!collectCoin) {
+            if (!collectedCoin) {
               M.toast({
                 html: "Something went wrong with collection",
                 classes: "danger",
