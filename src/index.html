@@ -217,12 +217,6 @@
           },
           onCloseEnd: function () {
             if (confirmed) {
-              //Clear it..
-              document.getElementById("amount").value = "";
-              document.getElementById("futuretime").value = "";
-              document.getElementById("futuredate").value = "";
-              document.getElementById("futurekey").value = "";
-
               //Create a random txn id..
               // var txnid = Math.floor(Math.random()*1000000000);
 
@@ -242,7 +236,31 @@
 
               //Post it..
               MDS.cmd(customTransaction, function (resp) {
-                // console.log(resp);
+                if (resp.status) {
+                  //Clear it..
+                  document.getElementById("amount").value = "";
+                  document.getElementById("futuretime").value = "";
+                  document.getElementById("futuredate").value = "";
+                  document.getElementById("futurekey").value = "";
+                  M.toast({
+                    html: "You have just sent some cash to the future!",
+                    classes: "success",
+                  });
+                } else {
+                  console.error(
+                    resp.message
+                      ? resp.message
+                      : "Something went wrong, please report this to admin."
+                  );
+                  M.toast({
+                    html: `${
+                      resp.message
+                        ? resp.message
+                        : "Something went wrong, please try again later."
+                    }`,
+                    classes: "danger",
+                  });
+                }
               });
             }
           },

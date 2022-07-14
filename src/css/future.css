@@ -434,7 +434,8 @@ margin-bottom: 8px;
   font-family: manrope-bold;
 }
 .miningstopped {
-  background-color: 
+  background-color: #16181C;
+  color: #fff;
 }
 .miningstop {
   background-color: rgb(246,81,48) !important;
@@ -447,17 +448,26 @@ margin-bottom: 8px;
 /** Date picker/time picker */
 
 .datepicker-date-display {
-  background-color: #031B32 !important;
+  background-color: #16181C !important;
 }
 .datepicker-canvas-bg {
-  fill: #031B32 !important;
+  fill: #16181C !important;
 }
 
 .timepicker-digital-display {
-  background-color: #031B32 !important;
+  background-color: #16181C !important;
 }
 
+.datepicker-table td.is-selected {
+  background-color: #317AFF!important;
+}
 
+.datepicker-done {
+  color: #317AFF!important;
+}
+.datepicker-cancel {
+  color: red!important;
+}
 
 
 
