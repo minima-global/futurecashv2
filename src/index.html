@@ -47,6 +47,26 @@
         let options2 = {};
         var elems2 = document.querySelectorAll(".timepicker");
         var instances2 = M.Timepicker.init(elems2, options2);
+
+        var date = "";
+        var time = "";
+        // check whether datetime has selected values
+        document
+          .getElementById("futuredate")
+          .addEventListener("change", function (evt) {
+            date = document.getElementById("futuredate").value.trim();
+            let block = calculateBlockTime(date, time);
+            document.getElementById("calculated-block-height").innerText =
+              block.floor();
+          });
+        document
+          .getElementById("futuretime")
+          .addEventListener("change", function (evt) {
+            time = document.getElementById("futuretime").value.trim();
+            let block = calculateBlockTime(date, time);
+            document.getElementById("calculated-block-height").innerText =
+              block.floor();
+          });
       });
 
       function copyKey() {
@@ -156,19 +176,9 @@
         document.getElementById("futurekey").disabled = toggle;
       }
 
-      function sendFunds() {
-        amount = document.getElementById("amount").value.trim();
-        date = document.getElementById("futuredate").value.trim();
-        time = document.getElementById("futuretime").value.trim();
-        key = document.getElementById("futurekey").value.trim();
-
-        // add the date to time chosen by user...
-        if (date == "" || time == "") {
-          return M.toast({ html: "Empty input fields are not allowed!" });
-        }
+      function calculateBlockTime(date, time) {
         date += " " + time;
         // create it
-        // console.log("DATE", date);
         let calculateDate = new Date(date);
         // console.log("calculateDate", calculateDate);
         // get the date in milliseconds
@@ -189,6 +199,21 @@
         // block we are sending this cash to
         let block = new Decimal(CURRENTBLOCKNUMBER).add(blockDifference);
         // console.log("Current BLock", block);
+        return block;
+      }
+
+      function sendFunds() {
+        amount = document.getElementById("amount").value.trim();
+        date = document.getElementById("futuredate").value.trim();
+        time = document.getElementById("futuretime").value.trim();
+        key = document.getElementById("futurekey").value.trim();
+
+        // add the date to time chosen by user...
+        if (date == "" || time == "") {
+          return M.toast({ html: "Empty input fields are not allowed!" });
+        }
+        console.log(`date: ${date}  -- time ${time}`);
+        let block = calculateBlockTime(date, time);
 
         if (amount == "" || time == "" || key == "" || date == "") {
           var elems = document.querySelectorAll(".modal");
@@ -214,7 +239,7 @@
           dismissible: true,
           onOpenStart: function () {
             $("#modalSendFunds h4").html(
-              "You are about to send money to the <b>Future!</b>"
+              `You are about to send money to the <b>Future!</b> <br/><br/> (Sending to block: ${block.floor()})`
             );
             $("#modalSendFunds p").text("are you sure?");
             $("#yesBtn").removeClass("hide");
@@ -478,7 +503,7 @@
       window.addEventListener("load", function () {
         //MDS.DEBUG_HOST = "127.0.0.1";
         //MDS.DEBUG_PORT = 9003;
-        //MDS.DEBUG_MINIDAPPID ="0x4832EC3EB1DDAB4AFD62063F102CD8C2231AC0B2F89038EA96CE03FC99BD6208";
+        //MDS.DEBUG_MINIDAPPID ="0x530E03A350225374BF9C8A0971476F0D09210FB22B7E502EDEA48AAE425EEC57";
 
         let usersFirstTime = localStorage.getItem("lastAccess") ? true : false;
         //Initialise MiFi
@@ -526,13 +551,6 @@
             setBalance();
           } else if (msg.event == "MINING") {
             // console.log(msg.data);
-            if (msg.data.mining) {
-              M.toast({ html: "Mining started.", classes: "miningstarted" });
-            }
-
-            if (!msg.data.mining) {
-              M.toast({ html: "Mining stopped.", classes: "miningstopped" });
-            }
           }
         });
       });
@@ -697,6 +715,14 @@
                       id="futuretime"
                     />
                   </div>
+                </div>
+              </div>
+              <div class="row" id="calculate-row">
+                <div class="col s3">
+                  <h6>Calculated Block Height:</h6>
+                </div>
+                <div class="col s9">
+                  <h6 id="calculated-block-height">...</h6>
                 </div>
               </div>
               <div class="row">
