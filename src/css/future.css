@@ -130,8 +130,25 @@ header  h4 #demo {
   margin-bottom: 4%;
 }
 
+#lock-icon, #unlock-icon {
+  height: 24px;
+  width: 24px;
+  margin-right: 2px;
+}
 
+.stack-row {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+}
 
+.space-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
 
 
 
@@ -217,11 +234,7 @@ margin-bottom: 8px;
   text-align: left;
 }
 
-.collapsible-header h5 {
-  display: flex;
-  align-items: center;
 
-}
 .button-wrapper {
   display: flex;
   justify-content: space-between;
@@ -550,6 +563,17 @@ margin-bottom: 8px;
 @keyframes progress-animation {
   0% { width: 0 }
   100% {width: 100%}
+}
+
+h6 {
+  margin: 0;
+}
+.collapsible-header {
+  display: block;
+}
+.arrows {
+  height: 24px!important;
+  width: 24px!important;
 }
 
 

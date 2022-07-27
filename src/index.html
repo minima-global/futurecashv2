@@ -38,6 +38,7 @@
       $(document).ready(function () {
         $(".collapsible").collapsible();
       });
+
       document.addEventListener("DOMContentLoaded", function () {
         var elems = document.querySelectorAll(".datepicker");
         let options = {
@@ -515,8 +516,7 @@
       window.addEventListener("load", function () {
         //MDS.DEBUG_HOST = "127.0.0.1";
         // MDS.DEBUG_PORT = 9003;
-        //MDS.DEBUG_MINIDAPPID =
-        "0x0C230DD7A28FCF429D37B8EABF46806E851605AD3B3F2DABF3378881CBF3EDBE";
+        //MDS.DEBUG_MINIDAPPID = "0x0C230DD7A28FCF429D37B8EABF46806E851605AD3B3F2DABF3378881CBF3EDBE";
 
         let usersFirstTime = localStorage.getItem("lastAccess") ? true : false;
         //Initialise MiFi
@@ -595,15 +595,21 @@
             <ul class="firstcollection collapsible collection z-depth-0">
               <li>
                 <div class="collapsible-header">
-                  <h5>
-                    <i class="material-icons info-icons">lock</i>Safeguard money
-                    with FutureCash
-                  </h5>
-                  <i id="dropdown1" class="dropdown material-icons iconadd"
-                    >arrow_drop_down</i
-                  ><i class="dropdown material-icons iconremove"
-                    >arrow_drop_up</i
-                  >
+                  <div class="space-between">
+                    <div class="stack-row">
+                      <img
+                        alt="lock"
+                        id="lock-icon"
+                        src="assets/future_lock.svg"
+                      />
+                      <h6>Safeguard money with FutureCash</h6>
+                    </div>
+                    <img
+                      alt="arrow-down"
+                      class="arrows"
+                      src="assets/arrow_down.svg"
+                    />
+                  </div>
                 </div>
                 <div class="collapsible-body">
                   <p>1. Look after your cash by not spending it.</p>
@@ -614,15 +620,22 @@
             <ul class="secondcollection collapsible collection z-depth-0">
               <li>
                 <div class="collapsible-header">
-                  <h5>
-                    <i class="material-icons info-icons">lock</i>How to send
-                    cash to the future.
-                  </h5>
-                  <i id="dropdown1" class="dropdown material-icons iconadd"
-                    >arrow_drop_down</i
-                  ><i class="dropdown material-icons iconremove"
-                    >arrow_drop_up</i
-                  >
+                  <div class="space-between">
+                    <div class="stack-row">
+                      <img
+                        alt="lock"
+                        id="lock-icon"
+                        src="assets/future_lock.svg"
+                      />
+                      <h6>How to send cash to the future</h6>
+                    </div>
+
+                    <img
+                      alt="arrow-down"
+                      class="arrows"
+                      src="assets/arrow_down.svg"
+                    />
+                  </div>
                 </div>
                 <div class="collapsible-body">
                   <p>
@@ -643,48 +656,26 @@
                 </div>
               </li>
             </ul>
-            <!-- <ul class="thirdcollection collapsible collection z-depth-0">
-              <li>
-                <div class="collapsible-header">
-                  <h5>
-                    <i class="material-icons info-icons">lock</i>Safeguarding
-                    other people's cash
-                  </h5>
-                  <i id="dropdown2" class="dropdown material-icons iconadd"
-                    >arrow_drop_down</i
-                  ><i class="dropdown material-icons iconremove"
-                    >arrow_drop_up</i
-                  >
-                </div>
-                <div class="collapsible-body">
-                  <p>1. Generate a key you will use to lock away your cash</p>
-                  <p>2. Copy the key</p>
-                  <p>
-                    3. Send the key to the person whose cash you want to
-                    safeguard
-                  </p>
-                  <p>
-                    4. Ask them to follow steps 3 - 6 from
-                    <span
-                      onclick="openCollapsible()"
-                      style="font-family: manrope-bold"
-                      >above</span
-                    >
-                  </p>
-                </div>
-              </li>
-            </ul> -->
+
             <ul class="fourthcollection collapsible collection z-depth-0">
               <li>
                 <div class="collapsible-header">
-                  <h5>
-                    <i class="material-icons info-icons">lock_open</i>Collecting
-                    FutureCash
-                  </h5>
-                  <i class="dropdown material-icons iconadd">arrow_drop_down</i
-                  ><i class="dropdown material-icons iconremove"
-                    >arrow_drop_up</i
-                  >
+                  <div class="space-between">
+                    <div class="stack-row">
+                      <img
+                        alt="lock"
+                        id="unlock-icon"
+                        src="assets/future_unlock.svg"
+                      />
+                      <h6>Collecting FutureCash</h6>
+                    </div>
+
+                    <img
+                      alt="arrow-down"
+                      class="arrows"
+                      src="assets/arrow_down.svg"
+                    />
+                  </div>
                 </div>
                 <div class="collapsible-body">
                   <p>
