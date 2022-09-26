@@ -270,7 +270,20 @@
 
               //Post it..
               MDS.cmd(customTransaction, function (resp) {
-                if (resp.status) {
+                console.log(resp);
+                if (!resp.status && resp.pending) {
+                  //Clear it..
+                  document.getElementById("amount").value = "";
+                  document.getElementById("futuretime").value = "";
+                  document.getElementById("futuredate").value = "";
+                  document.getElementById("futurekey").value = "";
+                  M.toast({
+                    html: resp.error,
+                    classes: "success",
+                  });
+                  toggleForm(false);
+                }
+                if (resp.status && !resp.pending) {
                   //Clear it..
                   document.getElementById("amount").value = "";
                   document.getElementById("futuretime").value = "";
@@ -281,17 +294,18 @@
                     classes: "success",
                   });
                   toggleForm(false);
-                } else {
+                }
+                if (!resp.status && !resp.pending) {
                   toggleForm(false);
                   console.error(
-                    resp.message
-                      ? resp.message
+                    resp.error
+                      ? resp.error
                       : "Something went wrong, please report this to admin."
                   );
                   M.toast({
                     html: `${
-                      resp.message
-                        ? resp.message
+                      resp.error
+                        ? resp.error
                         : "Something went wrong, please try again later."
                     }`,
                     classes: "danger",
@@ -546,7 +560,7 @@
             // Minima listens for any scripts with your PUBLIC KEYS in the STATE or PREVSTATE and
             // tracks those outputs automagically..
             MDS.cmd(
-              'newscript  script:"' + timescript + '" track:true',
+              'newscript  script:"' + timescript + '" trackall:false',
               function (resp) {
                 // console.log("newscript", resp);
                 //Set the time address
